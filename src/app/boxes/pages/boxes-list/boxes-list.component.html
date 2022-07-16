@@ -1,1 +1,23 @@
-<p>boxes-list works!</p>
+<ng-container *ngIf="boxesList$ | async as boxesList; else noData">
+  <div class="list-wrapper d-flex justify-content-evenly flex-wrap m-auto">
+    <div *ngFor="let box of boxesList" class="card my-3" style="width: 18rem">
+      <img
+        src="{{ box.iconUrl }}"
+        width="286"
+        height="286"
+        class="card-img-top"
+        alt="{{ box.name }}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ box.name }}</h5>
+        <p class="card-text">
+          {{ box.cost }}
+        </p>
+        <a routerLink="/boxes/{{ box.id }}" class="btn btn-primary">Show box</a>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #noData>
+  <p>No Data Available</p>
+</ng-template>

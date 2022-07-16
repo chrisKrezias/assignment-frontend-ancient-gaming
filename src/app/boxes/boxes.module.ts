@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BoxesRoutingModule } from './boxes-routing.module';
 import { BoxesListComponent } from './pages/boxes-list/boxes-list.component';
 import { BoxDetailsComponent } from './pages/box-details/box-details.component';
+import { BoxesService } from './services/boxes.service';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { BoxDetailsComponent } from './pages/box-details/box-details.component';
   imports: [
     CommonModule,
     BoxesRoutingModule
-  ]
+  ],
+  providers: [BoxesService]
 })
 export class BoxesModule { }
