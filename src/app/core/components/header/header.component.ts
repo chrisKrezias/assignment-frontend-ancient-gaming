@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public toggleNavbar = true;
+  public isLoggedIn$: Observable<boolean>;
 
-  constructor() { }
+  constructor(private auth: AuthService) {
+    this.isLoggedIn$ = this.auth.getLoggedInObservable();
+  }
 
   ngOnInit(): void {
   }
 
+  public onLogin(): void {
+    this.auth.login();
+  }
+
+  public onLogout(): void {
+    this.auth.logout();
+  }
 }

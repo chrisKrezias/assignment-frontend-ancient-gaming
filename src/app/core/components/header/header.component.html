@@ -23,7 +23,16 @@
           <a class="nav-link" routerLink="/boxes">Boxes List</a>
         </li>
       </ul>
-      <button class="btn btn-outline-success">Login</button>
+      <ng-container *ngIf="isLoggedIn$ | async; else login">
+        <button (click)="onLogout()" class="btn btn-outline-secondary">
+          Logout
+        </button>
+      </ng-container>
+      <ng-template #login>
+        <button (click)="onLogin()" class="btn btn-outline-success">
+          Login
+        </button>
+      </ng-template>
     </div>
   </div>
 </nav>
