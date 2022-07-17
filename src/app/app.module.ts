@@ -9,12 +9,14 @@ import { HeaderComponent } from './core/components/header/header.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
 import { UserInfoComponent } from './core/components/user-info/user-info.component';
+import { WalletInfoComponent } from './core/components/wallet-info/wallet-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    WalletInfoComponent
   ],
   imports: [
     BrowserModule,

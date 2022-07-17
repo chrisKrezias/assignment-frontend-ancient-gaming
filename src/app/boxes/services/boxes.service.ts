@@ -54,6 +54,7 @@ export class BoxesService {
               id
               name
               value
+              iconUrl
             }
           }
         }

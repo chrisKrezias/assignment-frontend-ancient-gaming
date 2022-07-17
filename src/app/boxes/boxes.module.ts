@@ -24,6 +24,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     CommonModule,
     BoxesRoutingModule
   ],
-  providers: [BoxesService]
+  providers: [
+    BoxesService
+  ]
 })
 export class BoxesModule { }

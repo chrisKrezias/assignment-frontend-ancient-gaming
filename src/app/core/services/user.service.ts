@@ -7,7 +7,7 @@ import { IUserData, IUserDataResponse } from '../models/user-data.model';
   providedIn: 'root'
 })
 export class UserService {
-  private userDataObservable: Observable<IUserData>
+  private userDataObservable: Observable<IUserData>;
 
   constructor(private apollo: Apollo) {
     this.userDataObservable = this.apollo
