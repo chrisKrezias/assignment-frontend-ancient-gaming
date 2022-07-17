@@ -1,9 +1,7 @@
 <ng-container *ngIf="boxesList$ | async as boxesList; else loading">
   <div class="list-wrapper d-flex justify-content-evenly flex-wrap m-auto">
     <app-box-details-card *ngFor="let boxData of boxesList" [boxData]="boxData">
-      <a routerLink="/boxes/{{ boxData.id }}" class="btn btn-primary"
-        >Show box</a
-      >
+      <a routerLink="/{{ boxData.id }}" class="btn btn-primary">Show box</a>
     </app-box-details-card>
   </div>
 </ng-container>
