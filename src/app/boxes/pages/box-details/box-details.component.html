@@ -1,1 +1,32 @@
-<p>box-details works!</p>
+<ng-container *ngIf="showWonItem; else showDetails">
+  <div class="list-wrapper d-flex justify-content-evenly flex-wrap m-auto">
+    <ng-container *ngIf="wonItemData$ | async as wonItemData; else loading">
+      <ng-container *ngIf="wonItemData && wonItemData.openBox; else noData">
+        <app-item-details-card
+          *ngFor="let item of wonItemData.openBox.boxOpenings"
+          [itemData]="item.itemVariant"
+        >
+        </app-item-details-card>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-container>
+<ng-template #showDetails>
+  <div class="list-wrapper d-flex justify-content-evenly flex-wrap m-auto">
+    <ng-container *ngIf="boxData$ | async as boxData; else loading">
+      <app-box-details-card [boxData]="boxData">
+        <button (click)="showWonItem = true" class="btn btn-primary">
+          Open box
+        </button>
+      </app-box-details-card>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #noData>
+  <p class="no-data-message">No Data Available</p>
+</ng-template>
+
+<ng-template #loading>
+  <app-loader></app-loader>
+</ng-template>

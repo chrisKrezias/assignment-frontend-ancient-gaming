@@ -1,0 +1,8 @@
+<app-card
+  *ngIf="boxData"
+  [imageUrl]="boxData.iconUrl"
+  [title]="boxData.name"
+  [value]="boxData.cost"
+>
+  <ng-content></ng-content>
+</app-card>

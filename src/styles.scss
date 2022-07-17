@@ -1,1 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "partials/custom-classes";
+@import "partials/variables";
+
+body {
+  background-color: $dark-gray-background;
+}

@@ -1,23 +1,12 @@
-<ng-container *ngIf="boxesList$ | async as boxesList; else noData">
+<ng-container *ngIf="boxesList$ | async as boxesList; else loading">
   <div class="list-wrapper d-flex justify-content-evenly flex-wrap m-auto">
-    <div *ngFor="let box of boxesList" class="card my-3" style="width: 18rem">
-      <img
-        src="{{ box.iconUrl }}"
-        width="286"
-        height="286"
-        class="card-img-top"
-        alt="{{ box.name }}"
-      />
-      <div class="card-body">
-        <h5 class="card-title">{{ box.name }}</h5>
-        <p class="card-text">
-          {{ box.cost }}
-        </p>
-        <a routerLink="/boxes/{{ box.id }}" class="btn btn-primary">Show box</a>
-      </div>
-    </div>
+    <app-box-details-card *ngFor="let boxData of boxesList" [boxData]="boxData">
+      <a routerLink="/boxes/{{ boxData.id }}" class="btn btn-primary"
+        >Show box</a
+      >
+    </app-box-details-card>
   </div>
 </ng-container>
-<ng-template #noData>
-  <p>No Data Available</p>
+<ng-template #loading>
+  <app-loader></app-loader>
 </ng-template>

@@ -1,0 +1,16 @@
+<div class="card my-3">
+  <img
+    src="{{ imageUrl }}"
+    width="286"
+    height="286"
+    class="card-img-top"
+    alt="{{ title }}"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <p class="card-text">
+      {{ value }}
+    </p>
+    <ng-content></ng-content>
+  </div>
+</div>

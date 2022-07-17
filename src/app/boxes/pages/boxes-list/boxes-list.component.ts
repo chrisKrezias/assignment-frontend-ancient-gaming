@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IBoxData } from '../../models/boxes-data.model';
+import { IBoxData } from '../../models/box-data.model';
 import { BoxesService } from '../../services/boxes.service';
 
 @Component({
